@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import API from '../assets/apiV3'
+import API from '../assets/apiV4';
+import LaunchesList from './Home/LaunchesList';
+
 
 const Test = () => {
     const [launches, setLaunches] = useState({
@@ -21,7 +23,7 @@ const Test = () => {
     return ( 
         <>
          Home
-         {!loading? console.log(launches) : "NO DATA"}
+         {!loading? <LaunchesList launches={launches.data}/>: "NO DATA"}
         </>
      );
 }
