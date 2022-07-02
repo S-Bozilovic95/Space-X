@@ -1,13 +1,12 @@
 import React from 'react';
 
-const Popup = () => {
-
+const PopUp = ({active}) => {
 
     return ( 
-        <>
-        pop
-        </>
+         <div  className={ `popup ${active ? "popupShow" : "popupHide"}`}>
+            <h2>Popup</h2>
+        </div>
      );
 }
  
-export default Popup;
+export default PopUp;
