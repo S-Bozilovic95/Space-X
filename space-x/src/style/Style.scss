@@ -1,0 +1,50 @@
+// google fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+// imports
+@import './Variables.scss';
+@import './Mixins.scss';
+
+
+// DEFAULT STYLES
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    line-height: 1.6;
+    font-family: $fontFamily;
+    background-color: $background;
+    scroll-behavior: smooth;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Poppins', sans-serif;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+
+    @media(max-width:768px){
+        width: 90%;
+    }
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: $lightGray;
+    transition: $transition-out;
+
+    &:hover{
+        transition: $transition-in;
+        color: $yellow;
+    }
+}
