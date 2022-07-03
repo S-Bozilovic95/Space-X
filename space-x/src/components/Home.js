@@ -3,17 +3,21 @@ import API from '../assets/apiV3';
 import LaunchesList from './Home/LaunchesList';
 
 
-const Test = () => {
+const Home = () => {
     const [launches, setLaunches] = useState({
         data:[],
         loading:true
     })
+    const [offset,setOffset] = useState(0);
 
     const {data,loading} = launches;
 
     const getLaunches = async()=>{
-        let response = await API.get("/launches");
-        setLaunches({...launches, data:response.data, loading:false})
+        if(offset<120){
+            let response = await API.get(`/launches?limit=10&offset=${offset}`);
+            setLaunches({...launches, data:[...data, ...response.data], loading:false})
+            setOffset(offset+10);
+        }
     }
 
     useEffect(()=>{
@@ -23,11 +27,11 @@ const Test = () => {
     return ( 
         <>
          Home
-         {!loading? <LaunchesList launches={launches.data}/>: "NO DATA"}
+         {!loading? <LaunchesList getLaunches={getLaunches} launches={launches.data}/>: "NO DATA"}
         </>
      );
 }
  
 
 
-export default Test;
+export default Home;
