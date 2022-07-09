@@ -1,0 +1,12 @@
+.launchesList{
+    margin-top: 20%;
+    height: 60vh;
+    overflow: auto;
+    padding: 20px;
+    background-color: rgba(30, 37, 58, 0.699);
+    border-radius: 20px;
+}
+
+.launchesList::-webkit-scrollbar {
+    display: none;
+}

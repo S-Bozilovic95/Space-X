@@ -4,7 +4,10 @@
 // imports
 @import './Variables.scss';
 @import './Mixins.scss';
+
+// components
 @import './Component-Style/PopUp.scss';
+@import './Component-Style/LaunchesList.scss';
 
 // DEFAULT STYLES
 *{
@@ -16,8 +19,12 @@
 body{
     line-height: 1.6;
     font-family: $fontFamily;
-    background-color: $background;
     scroll-behavior: smooth;
+    background-image: url(./Img/space2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 90vh;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -39,11 +46,9 @@ ul{
 
 a{
     text-decoration: none;
-    color: $lightGray;
     transition: $transition-out;
 
     &:hover{
         transition: $transition-in;
-        color: $yellow;
     }
 }

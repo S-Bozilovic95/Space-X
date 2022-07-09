@@ -9,7 +9,6 @@ const Home = () => {
         loading:true
     })
     const [offset,setOffset] = useState(0);
-
     const {data,loading} = launches;
 
     const getLaunches = async()=>{
@@ -25,10 +24,9 @@ const Home = () => {
     },[])
 
     return ( 
-        <>
-         Home
+        <section className='home container'>
          {!loading? <LaunchesList getLaunches={getLaunches} launches={launches.data}/>: "NO DATA"}
-        </>
+        </section>
      );
 }
  

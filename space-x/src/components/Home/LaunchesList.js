@@ -25,7 +25,7 @@ const LaunchesList = ({launches, getLaunches}) => {
 
 
     return ( 
-        <ul ref={reference}>
+        <ul ref={reference} className="launchesList">
             {
                launches!== undefined? 
                launches.map((el,index)=>{
