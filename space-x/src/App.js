@@ -1,13 +1,17 @@
 import './style/Style.scss';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Home from './components/Home';
+import Test from './components/Test';
+import Launches from './components/Launches/Launches';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div>
+    <div className='home'>
       <Router>
+        <Navbar/>
         <Routes>
-          <Route path='/' element={<Home/>}/>
+          <Route path='/Test' element={<Test/>}/>
+          <Route path='/Launches' element={<Launches/>}/>
         </Routes>
       </Router>
     </div>

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import API from '../assets/apiV3';
-import LaunchesList from './Home/LaunchesList';
+import API from '../../assets/apiV3';
+import LaunchesList from './LaunchesList';
 
-
-const Home = () => {
+const Launces = () => {
     const [launches, setLaunches] = useState({
         data:[],
         loading:true
@@ -23,13 +22,12 @@ const Home = () => {
         getLaunches();
     },[])
 
+
     return ( 
-        <section className='home container'>
-         {!loading? <LaunchesList getLaunches={getLaunches} launches={launches.data}/>: "NO DATA"}
-        </section>
+        <>
+             {!loading? <LaunchesList getLaunches={getLaunches} launches={launches.data}/>: "NO DATA"}
+        </>
      );
 }
  
-
-
-export default Home;
+export default Launces;

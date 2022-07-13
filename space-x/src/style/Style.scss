@@ -9,6 +9,7 @@
 @import './Component-Style/PopUp.scss';
 @import './Component-Style/LaunchesList.scss';
 
+
 // DEFAULT STYLES
 *{
     margin: 0;
@@ -24,7 +25,8 @@ body{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 90vh;
+    height: 100vh;
+    
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -51,4 +53,13 @@ a{
     &:hover{
         transition: $transition-in;
     }
+}
+
+
+.home{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid red;
+    margin: 5%;
+    height: 80vh;
 }
