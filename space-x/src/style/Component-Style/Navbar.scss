@@ -1,0 +1,47 @@
+.navbar{
+    background-color: $darkBlue;
+    border-radius: 5px 0px 0px 5px;
+    padding: 0px 0px 0px 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    
+    &__logo{
+       font-size: 4em; 
+       color: $white;
+       flex: 0 0 10%;
+    }
+
+    &__linkList{
+        flex: 0 0 77%;
+         
+        a{
+            font-size: 1.6em; 
+            color: $fontGray;
+            display: inline-block;
+            margin-top: 1em;
+
+            &:hover,
+            &:focus,
+            &:active{
+                color: $white;
+                filter: drop-shadow(0px 0px 7px rgb(236, 63, 5));
+            }
+        }
+        
+    }
+
+    &__settings{
+            font-size: 2em; 
+            color: $fontGray;
+            display: inline-block;
+
+            &:hover,
+            &:focus,
+            &:active{
+                color: $white;
+                filter: drop-shadow(0px 0px 7px rgb(236, 63, 5));
+            }
+    }
+}
