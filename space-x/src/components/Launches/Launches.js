@@ -13,7 +13,7 @@ const Launces = () => {
     const getLaunches = async()=>{
         if(offset<120){
             let response = await API.get(`/launches?limit=10&offset=${offset}`);
-            setLaunches({...launches, data:[...data, ...response.data], loading:false})
+            setLaunches({...launches, data:[...data, ...response.data], loading:false});
             setOffset(offset+10);
         }
     }

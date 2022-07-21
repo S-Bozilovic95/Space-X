@@ -23,11 +23,9 @@ body{
     font-family: $fontFamily;
     scroll-behavior: smooth;
     background-image:linear-gradient(rgba(23, 29, 54, 0.6),rgba(167, 81, 53, 0.4)) ,url(./Img/space2.jpg);
-    background-position: top;
+    background-position:center;
     background-size: cover;
     background-repeat: no-repeat;
-    // height: 100vh;
-    
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -58,8 +56,7 @@ a{
 
 
 .home{
-    display: flex;
-    justify-content: space-between;
+    @include flex(space-between,stretch);
     background:linear-gradient(rgba(0,0,0, 0.4),rgba(0,0,0, 0.4)) ,$background;
     margin: 100px auto;
     height: 80vh;

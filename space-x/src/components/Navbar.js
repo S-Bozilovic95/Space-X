@@ -11,8 +11,8 @@ const Navbar = () => {
         <nav className='navbar'>
             <i className='navbar__logo'><SiSpacex/></i>
             <ul className='navbar__linkList'>
+                <li><Link to={`/`}><FaRocket/></Link></li>
                 <li><Link to={`/Test`}><FaRocket/></Link></li>
-                <li><Link to={`/Launches`}><FaRocket/></Link></li>
                 <li><a href='#'><FaRocket/></a></li>
                 <li><a href='#'><FaRocket/></a></li>
                 <li><a href='#'><FaRocket/></a></li>
