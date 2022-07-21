@@ -10,8 +10,8 @@ function App() {
       <Router>
         <Navbar/>
         <Routes>
+          <Route path='/' element={<Launches/>}/>
           <Route path='/Test' element={<Test/>}/>
-          <Route path='/Launches' element={<Launches/>}/>
         </Routes>
       </Router>
     </div>

@@ -9,6 +9,7 @@
 // components
 @import './Component-Style/PopUp.scss';
 @import './Component-Style/LaunchesList.scss';
+@import './Component-Style/Navbar.scss';
 
 
 // DEFAULT STYLES
@@ -22,12 +23,10 @@ body{
     line-height: 1.6;
     font-family: $fontFamily;
     scroll-behavior: smooth;
-    background-image: url(./Img/space2.jpg);
-    background-position: center;
+    background-image:linear-gradient(rgba(23, 29, 54, 0.6),rgba(167, 81, 53, 0.4)) ,url(./Img/space2.jpg);
+    background-position:center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
-    
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -58,9 +57,11 @@ a{
 
 
 .home{
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid red;
-    margin: 5%;
+    @include flex(space-between,stretch);
+    background:linear-gradient(rgba(0,0,0, 0.4),rgba(0,0,0, 0.4)) ,$background;
+    margin: 100px auto;
     height: 80vh;
+    width: 70%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 150px rgba(167, 81, 53, 0.2);
 }
