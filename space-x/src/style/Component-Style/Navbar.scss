@@ -1,5 +1,5 @@
 .navbar{
-    background-color: $darkBlue;
+    background-color: $darkBlueTransparent;
     border-radius: 5px 0px 0px 5px;
     padding: 0px 0px 0px 20px;
     @include flex (flex-start,flex-start,column);
@@ -14,17 +14,8 @@
         flex: 0 0 77%;
          
         a{
-            font-size: 1.6em; 
-            color: $fontGray;
             display: inline-block;
             margin-top: 1em;
-
-            &:hover,
-            &:focus,
-            &:active{
-                color: $white;
-                filter: drop-shadow(0px 0px 7px rgb(236, 63, 5));
-            }
         }
         
     }

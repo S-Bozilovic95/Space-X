@@ -8,15 +8,17 @@ const Launces = () => {
         loading:true
     })
     const [offset,setOffset] = useState(0);
+    const [order,setOrder] = useState("asc");
     const {data,loading} = launches;
 
     const getLaunches = async()=>{
         if(offset<120){
-            let response = await API.get(`/launches?limit=10&offset=${offset}`);
+            let response = await API.get(`/launches?limit=10&offset=${offset}&order=${order}`);
             setLaunches({...launches, data:[...data, ...response.data], loading:false});
             setOffset(offset+10);
         }
     }
+
 
     useEffect(()=>{
         getLaunches();
@@ -24,9 +26,9 @@ const Launces = () => {
 
 
     return ( 
-        <>
+        <section className='launches'>
              {!loading? <LaunchesList getLaunches={getLaunches} launches={launches.data}/>: "NO DATA"}
-        </>
+        </section>
      );
 }
  

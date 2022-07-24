@@ -7,12 +7,12 @@
 @import './Mixins.scss';
 
 // components
-@import './Component-Style/PopUp.scss';
-@import './Component-Style/LaunchesList.scss';
+// @import './Component-Style/PopUp.scss';
+@import './Component-Style/Launches.scss';
 @import './Component-Style/Navbar.scss';
 
 
-// DEFAULT STYLES
+// default syles
 *{
     margin: 0;
     padding: 0;
@@ -33,35 +33,61 @@ h1,h2,h3,h4,h5,h6{
     font-family: 'Poppins', sans-serif;
 }
 
-.container{
-    width: 80%;
-    margin: auto;
-
-    @media(max-width:768px){
-        width: 90%;
-    }
-}
-
 ul{
     list-style-type: none;
 }
 
 a{
-    text-decoration: none;
+    font-size: 1.6em; 
+    color: $fontGray;
     transition: $transition-out;
 
-    &:hover{
+    &:hover,
+    &:focus,
+    &:active{
         transition: $transition-in;
+        color: $white;
+        filter: drop-shadow(0px 0px 7px rgb(236, 63, 5));
     }
 }
 
+section{
+    margin: 2em;
+    padding: 20px;
+    flex:0 0 75%;
+    overflow: auto;
 
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+//global classes
 .home{
-    @include flex(space-between,stretch);
-    background:linear-gradient(rgba(0,0,0, 0.4),rgba(0,0,0, 0.4)) ,$background;
+    @include flex(flex-start,stretch);
+    background:linear-gradient(rgba(0,0,0, 0.4),rgba(0,0,0, 0.4)) ,$backgroundTransparent;
     margin: 100px auto;
     height: 80vh;
     width: 70%;
     border-radius: 5px;
     box-shadow: 0px 0px 150px rgba(167, 81, 53, 0.2);
+    position: relative;
+}
+
+.popUpShow{
+    color: white;
+    position: absolute;
+    background:linear-gradient(rgba(20, 24, 34,0.5),rgba(23, 29, 54, 0.5)) ,$darkBlue; 
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.719);
+    top: -2em;
+    right: -5em;
+    font-size: 2rem;
+    height: 92vh;
+    width: 12em;
+    padding: 20px;
+}
+
+.popUpHide{
+    display: none;
 }
