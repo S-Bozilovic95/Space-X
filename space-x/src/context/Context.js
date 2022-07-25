@@ -6,7 +6,15 @@ const ContextProvider = ({children}) => {
     const[favorites,setFavorites] = useState([]);
 
     const handleFavorites=(value)=>{
-        setFavorites(favorites=>[...favorites,value]);
+        if(!favorites.includes(value)){
+            setFavorites(favorites=>[...favorites,value]);
+        }else{
+            // na ovaj nacin cuvam originalni stejt
+            let newFav = [...favorites];
+            let index =  newFav.indexOf(value)
+            newFav.splice(index,1);
+            setFavorites(newFav);
+        }
     }
 
 
