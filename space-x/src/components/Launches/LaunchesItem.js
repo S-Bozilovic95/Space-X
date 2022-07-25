@@ -1,15 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import LaunchesPopUp from './LaunchesPopUp';
 import rocket from '../../style/Img/rocket.png';
 import {FaBookmark} from 'react-icons/fa';
+import { Context } from '../../context/Context';
 
-const LaunchesItem = ({launch,handleFavorites}) => {
+const LaunchesItem = ({launch}) => {
     const[active,setActive] = useState(false);
+    const{favorites,handleFavorites} = useContext(Context);
+
 
     const handleActive =()=>{
         setActive(!active);
     }
 
+    console.log(favorites);
 
     return ( 
         <>
