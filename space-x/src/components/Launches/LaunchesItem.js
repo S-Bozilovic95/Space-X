@@ -6,20 +6,22 @@ import { Context } from '../../context/Context';
 
 const LaunchesItem = ({launch}) => {
     const[active,setActive] = useState(false);
-    const{favorites,handleFavorites} = useContext(Context);
+    const{handleFavorites} = useContext(Context);
+    const[save,setSave] = useState(false);
 
 
     const handleActive =()=>{
         setActive(!active);
     }
 
-    console.log(favorites);
+
+
 
     return ( 
         <>
             <LaunchesPopUp active={active}/>
             <li className="launches__list__item">
-                <i onClick={()=>handleFavorites(launch)}><FaBookmark/></i>
+                <i onClick={()=>{handleFavorites(launch); setSave(!save)}} className={save?"saved":null}><FaBookmark/></i>
                 <img src={launch.links.mission_patch_small=== null ? rocket : launch.links.mission_patch_small } alt="rocket image"/>
                 
                 <article>

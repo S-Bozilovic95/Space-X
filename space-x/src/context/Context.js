@@ -3,17 +3,24 @@ import React, { createContext,useState } from 'react';
 const Context = createContext();
 
 const ContextProvider = ({children}) => {
+    // states
     const[favorites,setFavorites] = useState([]);
 
+
+
+    // functions
     const handleFavorites=(value)=>{
         if(!favorites.includes(value)){
             setFavorites(favorites=>[...favorites,value]);
+            localStorage.setItem("favoriteLaunches",favorites);
+            
         }else{
             // na ovaj nacin cuvam originalni stejt
             let newFav = [...favorites];
             let index =  newFav.indexOf(value)
             newFav.splice(index,1);
             setFavorites(newFav);
+            localStorage.setItem("favoriteLaunches",favorites);
         }
     }
 
