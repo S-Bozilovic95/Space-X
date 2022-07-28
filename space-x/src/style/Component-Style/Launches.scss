@@ -20,30 +20,18 @@
             transition: $transition-out;
             position: relative;
 
-            &:hover,
-            &:active{
-                cursor: pointer;
+            &:hover{
                 transition: $transition-in;
                 background:linear-gradient(to right,rgb(30, 37, 58,.6),rgb(30, 37, 58, .3)), $backgroundTransparent;
             }
 
-            i{
+            button{
                 position: absolute;
                 top: 10px;
                 right: 10px;
                 font-size: 1.3em;
-                color: $fontGray;
-                transition: $transition-out;
-            
-                &:hover,
-                &:focus,
-                &:active{
-                    transition: $transition-in;
-                    color: $white;
-                    filter: drop-shadow(0px 0px 7px rgb(236, 63, 5));
-                }
             }
-            
+
             img{
                 width: 180px;
             }
@@ -52,10 +40,30 @@
                 margin-left: 10px;
                 color: $white;
                 
-
                 h4{
                     color: $lightOrange;
                     font-size: 1.3em;
+
+                    &:hover{
+                        cursor: pointer;
+                        transition: $transition-in;
+                        color: $white;
+                        filter: drop-shadow(0px 0px 7px rgb(236, 63, 5));
+                    }
+                }
+            }
+
+            
+            &__popUp{
+                margin-top: 50px;
+                height: 80vh;
+                border: 1px solid red;
+                display: flex;
+                justify-content: space-between;
+
+        
+                p{
+                    color: red;
                 }
             }
         }

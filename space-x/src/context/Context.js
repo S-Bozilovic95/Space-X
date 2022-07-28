@@ -33,4 +33,3 @@ const ContextProvider = ({children}) => {
 }
  
 export {ContextProvider,Context};
-

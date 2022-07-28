@@ -19,9 +19,9 @@ const LaunchesItem = ({launch}) => {
 
     return ( 
         <>
-            <LaunchesPopUp active={active}/>
+            <LaunchesPopUp active={active} handleActive={handleActive}/>
             <li className="launches__list__item">
-                <i onClick={()=>{handleFavorites(launch); setSave(!save)}} className={save?"saved":null}><FaBookmark/></i>
+                <button type="button" onClick={()=>{handleFavorites(launch); setSave(!save)}} className={save?"saved":null}><FaBookmark/></button>
                 <img src={launch.links.mission_patch_small=== null ? rocket : launch.links.mission_patch_small } alt="rocket image"/>
                 
                 <article>
