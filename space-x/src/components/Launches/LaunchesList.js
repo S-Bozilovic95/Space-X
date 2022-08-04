@@ -5,18 +5,22 @@ const LaunchesList = ({launches, getLaunches}) => {
    const reference = useRef(null);
 
    useEffect(()=>{
-      // kreira se observer sa odredjenom funk koju izvrsava kad se okine
-      const observer = new IntersectionObserver((changes)=>{
-         changes.forEach(change =>{
-            if(change.isIntersecting){
-               getLaunches();
-               observer.unobserve(change.target.lastChild);
-            }
+      
+      if(typeof(getLaunches)==="function"){
+         // kreira se observer sa odredjenom funk koju izvrsava kad se okine
+         const observer = new IntersectionObserver((changes)=>{
+            changes.forEach(change =>{
+               if(change.isIntersecting){
+                  getLaunches();
+                  observer.unobserve(change.target.lastChild);
+               }
+            })
          })
-      })
 
-      // observer posmatra referencu
-      observer.observe(reference.current.lastChild);
+         // observer posmatra referencu
+         observer.observe(reference.current.lastChild);
+      }
+
    },[launches]);
 
 

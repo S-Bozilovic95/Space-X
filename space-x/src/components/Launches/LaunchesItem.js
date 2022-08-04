@@ -27,7 +27,7 @@ const LaunchesItem = ({launch}) => {
                 <article>
                     <h4 onClick={()=>handleActive()}>{launch.mission_name}</h4>
                     <p>Rocket: {launch.rocket.rocket_name}</p>
-                    <p>Launch: {launch.launch_success?"Successful":"Failed"}</p>
+                    <p>Launch: {launch.launch_success?"Successful":launch.launch_success=== null?"Successful":"Failed"}</p>
                     <p>Year: {launch.launch_year}</p>
                 </article>
                 

@@ -1,4 +1,5 @@
-import React, { createContext,useState } from 'react';
+import React, { createContext,useEffect,useState } from 'react';
+import API from '../assets/apiV3';
 
 const Context = createContext();
 
@@ -23,6 +24,11 @@ const ContextProvider = ({children}) => {
             localStorage.setItem("favoriteLaunches",favorites);
         }
     }
+
+
+    // useEffect(()=>{
+    //     getAllLaunches()
+    // },[])
 
 
     return ( 
