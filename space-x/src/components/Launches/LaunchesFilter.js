@@ -16,17 +16,30 @@ const LaunchesFilter = ({launches,handleChanges}) => {
         if(success){
             arr = launches.filter(el=>el.launch_success === true || el.launch_success === null);
             handleChanges(arr);
+
         }
+
+        if(order==="desc"){
+            arr=[]
+            arr = launches.sort().reverse();
+            handleChanges(arr)
+        }
+        // else if(order==="asc"){
+        //     arr=[]
+        //     arr = launches;
+        //     handleChanges(arr);
+        // }
+        // console.log(order);
     }
 
-    // console.log(arr, launcheaunches.data);
+
 
     return (  
         <form className='launches__filter'  onSubmit={(e)=>handleFilter(e)}>
             <article>
                 <label>
                     Ascending
-                    <input type="radio" name='orderBy' checked={true}  onChange={()=>setFilter({...filter, order:"asc"})}/>
+                    <input type="radio" name='orderBy' onChange={()=>setFilter({...filter, order:"asc"})}/>
                 </label>
                 <label>
                     Descending

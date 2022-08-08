@@ -37,7 +37,7 @@ const Launches = () => {
         getAllLaunches();
     },[])
 
-console.log(filteredLaunches);
+// console.log(filteredLaunches);
 
     return ( 
         <section className='launches'>
