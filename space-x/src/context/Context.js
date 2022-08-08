@@ -26,11 +26,6 @@ const ContextProvider = ({children}) => {
     }
 
 
-    // useEffect(()=>{
-    //     getAllLaunches()
-    // },[])
-
-
     return ( 
         <Context.Provider value={{favorites, handleFavorites}}>
             {children}
