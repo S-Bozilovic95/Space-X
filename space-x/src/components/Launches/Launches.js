@@ -7,32 +7,31 @@ const Launches = () => {
     // states
     const [launches, setLaunches] = useState({
         data:[],
+        filteredLaunches:[],
         loading:true
-    })
-    const [filteredLaunches, setFilteredLaunches] = useState([]);
-    const {data,loading} = launches;
+    });
+    const {data,loading,filteredLaunches} = launches;
 
 
     const getAllLaunches = async()=>{
         let response = await API.get(`/launches`);
-        setFilteredLaunches(response.data);
-        setLaunches({data:response.data, loading:false});
+         setLaunches({data:response.data, filteredLaunches:response.data, loading:false});
     } 
 
     const handleChanges = (value) =>{
-        setFilteredLaunches(value)
+        setLaunches({...launches,filteredLaunches:value});
     }
+
 
     useEffect(()=>{
         getAllLaunches();
     },[])
-
-// console.log(filteredLaunches);
+    
 
     return ( 
         <section className='launches'>
-            <LaunchesFilter launches={launches.data} handleChanges={handleChanges}/>
-             {!loading ? <LaunchesList launches={filteredLaunches}/>:"no data"}
+            <LaunchesFilter launches={data} handleChanges={handleChanges}/>
+             {!loading && filteredLaunches.length!=0 ? <LaunchesList launches={filteredLaunches}/>: !loading && filteredLaunches.length===0 ? "no data": "skeleton"}
         </section>
      );
 }

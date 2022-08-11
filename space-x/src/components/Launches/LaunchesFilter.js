@@ -8,39 +8,30 @@ const LaunchesFilter = ({launches,handleChanges}) => {
         from:0,
         to:Math.round(new Date().getTime()/1000),
     })
-
-
     const {order,success,from,to} = filter;
 
-    // console.log(order);
-    
+
     const handleFilter = (e) =>{
         e.preventDefault();
         let arr=launches;
 
-        if(success){
-            console.log("jeste check");
+        if(success === true){
             arr = arr.filter(el=>el.launch_success === true || el.launch_success === null);
-        }
-
-        if(!success){
-            console.log("nije check");
         }
 
         if(order){
             arr = arr.sort((a,b)=> b.launch_date_unix - a.launch_date_unix);
-            console.log("radi desc");
-        }
-        
-        if(!order){
+
+        }else if(!order){
             arr = arr.sort((a,b)=> a.launch_date_unix - b.launch_date_unix);
-            console.log("radi asc");
         }
-        // console.log(arr);
+
+        arr = arr.filter(el=>el.launch_date_unix >= from && el.launch_date_unix <= to);
         handleChanges(arr);
     }
 
-// console.log(filter);
+
+
 
     return (  
         <form className='launches__filter'  onSubmit={(e)=>handleFilter(e)}>
@@ -57,7 +48,7 @@ const LaunchesFilter = ({launches,handleChanges}) => {
             
             <label>
                 Succesfull Launches
-                <input type="checkbox" onChange={()=>setFilter({...filter, success:!success})}/>
+                <input type="checkbox"  onChange={()=>setFilter({...filter, success:!success})}/>
             </label>
 
             <label>
