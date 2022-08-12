@@ -1,5 +1,6 @@
 .launches{
     border-radius: 5px;
+    // position: relative;
     // flex:0 0 80%;
 
     &__list{
@@ -13,7 +14,7 @@
 
         &__item{
             @include flex(flex-start,center);
-            margin: 5px;
+            margin: 5px 0px;
             padding: 10px;
             border-radius: 5px;
             background:linear-gradient(to left,rgb(30, 37, 58,.1),rgb(30, 37, 58, .8));
@@ -67,5 +68,25 @@
                 }
             }
         }
+    }
+
+    &__funnel{
+        font-size:2rem;
+        position: sticky;
+        right: 0px;
+        top: 0px;
+        z-index: 2;
+        // background-color: $darkBlue;
+    }
+
+    &__filterShow{
+        background-color: red;
+        position: sticky;
+        top: 2em;
+        z-index: 2;
+    }
+
+    &__filterHide{
+        display: none;
     }
 }

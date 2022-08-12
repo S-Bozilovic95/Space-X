@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import API from '../../assets/apiV3';
 import LaunchesFilter from './LaunchesFilter';
 import LaunchesList from './LaunchesList';
+import {BsFilterSquare} from 'react-icons/bs';
 
 const Launches = () => {
     // states
@@ -10,6 +11,8 @@ const Launches = () => {
         filteredLaunches:[],
         loading:true
     });
+
+    const [showFilter, setShowFilter] = useState(false);
     const {data,loading,filteredLaunches} = launches;
 
 
@@ -22,15 +25,21 @@ const Launches = () => {
         setLaunches({...launches,filteredLaunches:value});
     }
 
+    const handleShowFilter = () =>{
+        setShowFilter(!showFilter);
+    }
+
 
     useEffect(()=>{
         getAllLaunches();
     },[])
     
+    console.log(showFilter);
 
     return ( 
         <section className='launches'>
-            <LaunchesFilter launches={data} handleChanges={handleChanges}/>
+            <button type='button' className='launches__funnel' onClick={()=>handleShowFilter()}><BsFilterSquare/></button>
+            <LaunchesFilter launches={data} handleChanges={handleChanges} showFilter={showFilter}/>
              {!loading && filteredLaunches.length!=0 ? <LaunchesList launches={filteredLaunches}/>: !loading && filteredLaunches.length===0 ? "no data": "skeleton"}
         </section>
      );

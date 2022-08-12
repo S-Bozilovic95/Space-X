@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-const LaunchesFilter = ({launches,handleChanges}) => {
+const LaunchesFilter = ({launches,handleChanges,showFilter}) => {
     const [filter,setFilter] = useState({
         order:false,
         success: false,
@@ -34,7 +34,7 @@ const LaunchesFilter = ({launches,handleChanges}) => {
 
 
     return (  
-        <form className='launches__filter'  onSubmit={(e)=>handleFilter(e)}>
+        <form className={showFilter? "launches__filterShow" : "launches__filterHide"}  onSubmit={(e)=>handleFilter(e)}>
             
             <label>
                 Ascending
