@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import {BsFilterSquare} from 'react-icons/bs';
 
 
-const LaunchesFilter = ({launches,handleChanges,showFilter}) => {
+const LaunchesFilter = ({launches,handleChanges}) => {
     const [filter,setFilter] = useState({
         order:false,
         success: false,
@@ -9,6 +10,8 @@ const LaunchesFilter = ({launches,handleChanges,showFilter}) => {
         to:Math.round(new Date().getTime()/1000),
     })
     const {order,success,from,to} = filter;
+    const [showFilter, setShowFilter] = useState(false);
+    
 
 
     const handleFilter = (e) =>{
@@ -34,35 +37,42 @@ const LaunchesFilter = ({launches,handleChanges,showFilter}) => {
 
 
     return (  
-        <form className={showFilter? "launches__filterShow" : "launches__filterHide"}  onSubmit={(e)=>handleFilter(e)}>
+        <div className='launches__filter'>
+        <button type='button' className='launches__filter__funnel' onClick={()=>setShowFilter(!showFilter)}><BsFilterSquare/></button>
+        <form className={showFilter? "launches__filter__filterShow" : "launches__filter__filterHide"}  onSubmit={(e)=>handleFilter(e)}>
             
-            <label>
-                Ascending
-                <input type="radio" name='orderBy' onChange={()=>setFilter({...filter, order:false})}/>
-            </label>
+            <article>
+                <label>
+                    Ascending
+                    <input type="radio" name='orderBy' onChange={()=>setFilter({...filter, order:false})}/>
+                </label>
 
-            <label>
-                Descending
-                <input type="radio" name='orderBy' onChange={()=>setFilter({...filter, order:true})}/>
-            </label>
-            
+                <label>
+                    Descending
+                    <input type="radio" name='orderBy' onChange={()=>setFilter({...filter, order:true})}/>
+                </label>
+            </article>
+
+            <article>
+                <label>
+                    From
+                    <input type="date" onChange={(e)=>setFilter({...filter, from: Math.round(new Date(e.target.value).getTime()/1000)})}/>
+                </label>
+
+                <label>
+                    To
+                    <input type="date" onChange={(e)=>setFilter({...filter, to: Math.round(new Date(e.target.value).getTime()/1000)})}/>
+                </label>
+            </article>
+
             <label>
                 Succesfull Launches
                 <input type="checkbox"  onChange={()=>setFilter({...filter, success:!success})}/>
             </label>
 
-            <label>
-                From
-                <input type="date" onChange={(e)=>setFilter({...filter, from: Math.round(new Date(e.target.value).getTime()/1000)})}/>
-            </label>
-
-            <label>
-                To
-                <input type="date" onChange={(e)=>setFilter({...filter, to: Math.round(new Date(e.target.value).getTime()/1000)})}/>
-            </label>
-
-            <button type='submit'>apply</button>
+            <input type='submit' value="apply"/>
         </form>
+        </div>
      );
 }
  

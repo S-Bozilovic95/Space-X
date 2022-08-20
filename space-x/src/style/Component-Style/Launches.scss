@@ -70,23 +70,28 @@
         }
     }
 
-    &__funnel{
-        font-size:2rem;
+    &__filter{
+        @include flex(flex-start,flex-start);
         position: sticky;
-        right: 0px;
-        top: 0px;
+        top: 0;
         z-index: 2;
-        // background-color: $darkBlue;
-    }
+        background-color: $darkBlue;
+        width: 50%;
 
-    &__filterShow{
-        background-color: red;
-        position: sticky;
-        top: 2em;
-        z-index: 2;
-    }
+            &__funnel{
+                font-size:2rem;
+            }
+        
+            &__filterShow{
+                @include flex (flex-start,center);
 
-    &__filterHide{
-        display: none;
+                
+                
+            }
+        
+            &__filterHide{
+                visibility: hidden;
+                @include flex (flex-start,center);
+            }
     }
 }

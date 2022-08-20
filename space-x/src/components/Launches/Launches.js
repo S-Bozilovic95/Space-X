@@ -11,8 +11,6 @@ const Launches = () => {
         filteredLaunches:[],
         loading:true
     });
-
-    const [showFilter, setShowFilter] = useState(false);
     const {data,loading,filteredLaunches} = launches;
 
 
@@ -25,21 +23,18 @@ const Launches = () => {
         setLaunches({...launches,filteredLaunches:value});
     }
 
-    const handleShowFilter = () =>{
-        setShowFilter(!showFilter);
-    }
+    
 
 
     useEffect(()=>{
         getAllLaunches();
     },[])
     
-    console.log(showFilter);
+    
 
     return ( 
         <section className='launches'>
-            <button type='button' className='launches__funnel' onClick={()=>handleShowFilter()}><BsFilterSquare/></button>
-            <LaunchesFilter launches={data} handleChanges={handleChanges} showFilter={showFilter}/>
+            <LaunchesFilter launches={data} handleChanges={handleChanges} />
              {!loading && filteredLaunches.length!=0 ? <LaunchesList launches={filteredLaunches}/>: !loading && filteredLaunches.length===0 ? "no data": "skeleton"}
         </section>
      );
