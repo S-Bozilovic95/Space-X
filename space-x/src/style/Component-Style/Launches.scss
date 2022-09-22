@@ -1,94 +1,161 @@
-.launches{
-    border-radius: 5px;
-    // position: relative;
-    // flex:0 0 80%;
+.launches {
+  border-radius: 5px;
+  flex:0 0 80%;
 
-    &__list{
-        display: grid;
-        grid-template-columns: repeat(2,1fr);
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 
-        @media(max-width:1024px){
-            grid-template-columns: 1fr;
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+    }
+
+    &__item {
+      @include flex(flex-start, center);
+      margin: 5px 0px;
+      padding: 10px;
+      border-radius: 5px;
+      background: linear-gradient(
+        to left,
+        rgb(30, 37, 58, 0.1),
+        rgb(30, 37, 58, 0.8)
+      );
+      transition: $transition-out;
+      position: relative;
+
+      &:hover {
+        transition: $transition-in;
+        background: linear-gradient(
+            to right,
+            rgb(30, 37, 58, 0.6),
+            rgb(30, 37, 58, 0.3)
+          ),
+          $backgroundTransparent;
+      }
+
+      button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.3em;
+      }
+
+      img {
+        width: 180px;
+      }
+
+      article {
+        margin-left: 10px;
+        color: $white;
+
+        h4 {
+          color: $lightOrange;
+          font-size: 1.3em;
+
+          &:hover {
+            cursor: pointer;
+            transition: $transition-in;
+            color: $white;
+            filter: drop-shadow(0px 0px 7px rgb(236, 63, 5));
+          }
         }
+      }
 
+      &__popUp {
+        margin-top: 50px;
+        height: 80vh;
+        border: 1px solid red;
+        display: flex;
+        justify-content: space-between;
 
-        &__item{
-            @include flex(flex-start,center);
-            margin: 5px 0px;
-            padding: 10px;
-            border-radius: 5px;
-            background:linear-gradient(to left,rgb(30, 37, 58,.1),rgb(30, 37, 58, .8));
-            transition: $transition-out;
-            position: relative;
+        p {
+          color: red;
+        }
+      }
+    }
+  }
 
-            &:hover{
-                transition: $transition-in;
-                background:linear-gradient(to right,rgb(30, 37, 58,.6),rgb(30, 37, 58, .3)), $backgroundTransparent;
-            }
+  &__filter {
+    @include flex(flex-start, center);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    
 
-            button{
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                font-size: 1.3em;
-            }
+    &__funnel {
+      font-size: 2em;
+      margin:15px 10px 10px 12px;
+    }
 
-            img{
-                width: 180px;
-            }
+    &__box{
+      @include flex(space-between, center);
+      transition: 0.25s ease-out;
+      width: 0px;
+      height: 40px;
+      border-radius: 5px;
+      overflow: hidden;
+      background: linear-gradient(to right, rgba(23, 29, 54),rgba(167, 81, 53, 0.2));
+      padding: 0;
 
-            article{
-                margin-left: 10px;
-                color: $white;
-                
-                h4{
-                    color: $lightOrange;
-                    font-size: 1.3em;
+      article{
+          @include flex(space-between, center);
 
-                    &:hover{
-                        cursor: pointer;
-                        transition: $transition-in;
-                        color: $white;
-                        filter: drop-shadow(0px 0px 7px rgb(236, 63, 5));
-                    }
-                }
-            }
+        label{
+          @include flex(center, center);
+          color: $white;
+          font-weight: 300;
+          margin: 0px 5px;
+          // @include flex(space-between, center);
 
+          .classicInput{
+            width: 13px;
+            height: 13px;
+            margin: 0px 3px;
+            accent-color: $lightBlue;
             
-            &__popUp{
-                margin-top: 50px;
-                height: 80vh;
-                border: 1px solid red;
-                display: flex;
-                justify-content: space-between;
-
-        
-                p{
-                    color: red;
-                }
+            &:hover{
+              cursor: pointer;
             }
+          }
+
+          .dateInput{
+            background-color: $lightBlue;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 0px 3px;
+            color: $white;
+            font-size: 1.2em;
+
+            &::-webkit-calendar-picker-indicator { 
+              filter: invert(100%);
+            }
+          }
         }
+      }
+
+      .submitInput{
+        font-size: 1.2em;
+        padding: 5px;
+        color: $white;
+        background-color: $lightBlue;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+
+        &:hover{
+          cursor: pointer;
+          background-color: $darkBlueTransparent;
+        }
+      }
     }
 
-    &__filter{
-        @include flex(flex-start,flex-start);
-        position: sticky;
-        top: 0;
-        z-index: 2;
-        background-color: $darkBlue;
-        width: 50%;
-
-            &__funnel{
-                font-size:2rem;
-            }
-        
-            &__filterShow{
-                @include flex (flex-start,center);
-            }
-        
-            &__filterHide{
-                visibility: hidden;
-                @include flex (flex-start,center);
-            }
+    &__filterShow {
+      transition: 0.25s ease-in;
+      // height:40px;
+      width: 100%;
+      padding: 10px;
     }
+  }
 }
